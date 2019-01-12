@@ -1,0 +1,27 @@
+package com.anadarko.exercise;
+
+import java.util.Comparator;
+
+public class SortReadings {
+	
+	public Comparator<Readings> comparator() {
+		Comparator<Readings> comparator = new Comparator<Readings>() {
+			@Override
+			public int compare(Readings r1, Readings r2) {
+				return compareStrings(r1.getPlatform_name(), r2.getPlatform_name());
+			}
+		};
+		return comparator;
+	}
+
+	public static int compareStrings(String a, String b) {
+		int compare = a.compareTo(b);
+		if (compare < 0) {
+			return -1;
+		} else if (compare > 0) {
+			return 1;
+		}
+		return compare;
+	}
+
+}
