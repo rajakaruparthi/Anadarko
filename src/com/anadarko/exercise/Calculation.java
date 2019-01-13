@@ -19,7 +19,6 @@ public class Calculation {
 		for (int i = 0; i < all_readings.size(); i++) {
 			Readings reading1 = all_readings.get(i);
 			Readings reading2 = (i < (all_readings.size() - 1) ? all_readings.get(i + 1) : new Readings());
-			System.out.println(reading1.getPlatform_name().equals(reading2.getPlatform_name()));
 			if (reading1.getPlatform_name().equals(reading2.getPlatform_name())) {
 				count++;
 				/* ------------------ calculate total gap ------------------------ */
@@ -54,7 +53,7 @@ public class Calculation {
 					populate_output_readings = populate_output_readings(reading1.getPlatform_name(), "0", "0", min_value,
 							convert_epoch_to_time(max_flight_time));
 				} else {
-					populate_output_readings = populate_output_readings(reading2.getPlatform_name(), convert_epoch_to_time(total_gap),
+					populate_output_readings = populate_output_readings(reading1.getPlatform_name(), convert_epoch_to_time(total_gap),
 							convert_epoch_to_time(count > 0 ? total_gap / count : total_gap), min_value,
 							convert_epoch_to_time(max_flight_time));
 				}
@@ -78,8 +77,6 @@ public class Calculation {
 		outputReading.setTotal_gap_time(total_gap_time);
 		outputReading.setMin_value(min_value);
 		outputReading.setMax_flight_time(max_flight_time);
-		System.out
-				.println(platform_name + ", " + total_gap_time + ", " + avg_gap_time + ", " + min_value + ", " + max_flight_time);
 		return outputReading;
 	}
 
@@ -88,7 +85,11 @@ public class Calculation {
 		long minutes = epoch_time % 3600 / 60;
 		long hours = epoch_time % 86400 / 3600;
 		long days = epoch_time / 86400;
-		return days + ":" + hours + ":" + minutes + ":" + sec;
+		return parseTime(days) + ":" + parseTime(hours) + ":" + parseTime(minutes) + ":" + parseTime(sec);
+	}
+	
+	public String parseTime(long input) {
+		return input == 0? "00" : Long.toString(input);
 	}
 
 }
