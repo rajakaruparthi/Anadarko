@@ -10,9 +10,9 @@ import java.util.List;
 
 public class ReadFile {
 
-	static List<Readings> all_readings = new ArrayList<Readings>();
+	static List<InputReadings> all_readings = new ArrayList<InputReadings>();
 
-	public List<Readings> populate_readings(String path) {
+	public List<InputReadings> populate_readings(String path) {
 
 		try {
 			try (BufferedReader r = Files.newBufferedReader(Paths.get(path))) {
@@ -32,7 +32,7 @@ public class ReadFile {
 	}
 
 	private static void assign_data_to_object(String[] readings_array) {
-		Readings reading = new Readings();
+		InputReadings reading = new InputReadings();
 		reading.setPlatform_name(readings_array[0]);
 		reading.setReading_send_time(Long.valueOf(readings_array[1]));
 		reading.setReading_receive_time(Long.valueOf(readings_array[2]));

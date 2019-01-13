@@ -1,17 +1,16 @@
 package com.anadarko.exercise;
 
-public class Readings {
+public class InputReadings {
 
 	// Platform name],[Reading send time in Epoch Time],[Reading receive time in
 	// Epoch Time],[Number of sensors with the same reading],[Reading value]
-	
 	private String platform_name;
 	private long reading_send_time;
 	private long reading_receive_time;
 	private int number_of_sensors;
 	private int reading_value;
 	
-	public Readings(String platform_name, long reading_send_time, long reading_receive_time, int number_of_sensors,
+	public InputReadings(String platform_name, long reading_send_time, long reading_receive_time, int number_of_sensors,
 			int reading_value) {
 		super();
 		this.platform_name = platform_name;
@@ -21,7 +20,7 @@ public class Readings {
 		this.reading_value = reading_value;
 	}
 	
-	public Readings() {
+	public InputReadings() {
 	}
 
 	public String getPlatform_name() {

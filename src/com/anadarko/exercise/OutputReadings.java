@@ -1,20 +1,19 @@
 package com.anadarko.exercise;
 
-public class OutputReading {
+public class OutputReadings {
 
 	// ABCD,00:33:20,00:16:40,-90,00:50:00
 	// Platform name, Total Gap Time, Average Gap Time, Min Value, Max Flight Time
-
 	private String platform_name;
 	private String total_gap_time;
 	private String avg_gap_time;
 	private int min_value;
 	private String max_flight_time;
-	
-	public OutputReading() {
+
+	public OutputReadings() {
 	}
-	
-	public OutputReading(String platform_name, String total_gap_time, String avg_gap_time, int min_value,
+
+	public OutputReadings(String platform_name, String total_gap_time, String avg_gap_time, int min_value,
 			String max_flight_time) {
 		this.platform_name = platform_name;
 		this.total_gap_time = total_gap_time;

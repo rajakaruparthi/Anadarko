@@ -8,16 +8,17 @@ public class MainClass {
 
 	public static final String path = System.getProperty("user.dir") + "/src/com/anadarco/exercice/resources/input.txt";
 
-	public static List<Readings> all_readings = new ArrayList<Readings>();
+	public static List<InputReadings> all_readings = new ArrayList<InputReadings>();
 
 	public static void main(String[] args) 
 	{
 		Calculation cal = new Calculation();
 		ReadFile read = new ReadFile();
 		SortReadings sort= new SortReadings();
-		
-		List<Readings> all_readings = read.populate_readings(path);
+		WriteToCSV write = new WriteToCSV();
+		List<InputReadings> all_readings = read.populate_readings(path);
 		Collections.sort(all_readings, sort.comparator());
-		cal.do_calculations(all_readings);
+		List<OutputReadings> output_readings = cal.do_calculations(all_readings);
+		write.writeToCsv(output_readings);
 	}
 }
