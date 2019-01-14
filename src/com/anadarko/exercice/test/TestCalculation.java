@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import org.junit.jupiter.api.Test;
-import com.anadarko.exercise.Calculation;
+
+import com.anadarko.exercise.core.Calculation;
 import com.anadarko.exercise.model.InputReadings;
 import com.anadarko.exercise.model.OutputReadings;
 

@@ -1,4 +1,4 @@
-package com.anadarko.exercise;
+package com.anadarko.exercise.core;
 
 import java.util.ArrayList;
 import java.util.Collections;
