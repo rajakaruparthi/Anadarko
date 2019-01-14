@@ -27,7 +27,7 @@ public class MainClass {
 		List<OutputReadings> output_readings = cal.do_calculations(all_readings);
 		
 		WriteFile write = new WriteFile();
-		String output_filename = "output1.csv";
+		String output_filename = "output_readings.csv";
 		write.writeToCsv(output_readings, output_filename);
 	}
 }

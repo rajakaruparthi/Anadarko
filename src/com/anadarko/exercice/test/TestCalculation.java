@@ -33,10 +33,10 @@ class TestCalculation {
 		Calculation cal = new Calculation();
 		List<OutputReadings> do_Calculations = cal.do_calculations(dataset_1);
 		assertEquals("ABCD", do_Calculations.get(0).getPlatform_name());
-		assertEquals("00:00:33:20", do_Calculations.get(0).getTotal_gap_time());
-		assertEquals("00:00:16:40", do_Calculations.get(0).getAvg_gap_time());
+		assertEquals("00:33:20", do_Calculations.get(0).getTotal_gap_time());
+		assertEquals("00:16:40", do_Calculations.get(0).getAvg_gap_time());
 		assertEquals(-90, do_Calculations.get(0).getMin_value());
-		assertEquals("00:00:50:00", do_Calculations.get(0).getMax_flight_time());
+		assertEquals("00:50:00", do_Calculations.get(0).getMax_flight_time());
 	}
 
 	@Test
@@ -47,14 +47,14 @@ class TestCalculation {
 		assertEquals("0", do_Calculations.get(0).getTotal_gap_time());
 		assertEquals("0", do_Calculations.get(0).getAvg_gap_time());
 		assertEquals(907, do_Calculations.get(0).getMin_value());
-		assertEquals("00:00:16:40", do_Calculations.get(0).getMax_flight_time());
+		assertEquals("00:16:40", do_Calculations.get(0).getMax_flight_time());
 	}
 
 	@Test
 	public void dataset_3() {
 		Calculation cal = new Calculation();
-		Object[] expected = { "ABCD", "00:00:33:20", "00:00:16:40", -90, "00:00:50:00", "ABCF", "0", "0", 907,
-				"00:00:16:40" };
+		Object[] expected = { "ABCD", "00:33:20", "00:16:40", -90, "00:50:00", "ABCF", "0", "0", 907,
+				"00:16:40" };
 		List<OutputReadings> do_Calculations = cal.do_calculations(dataset_3);
 		convert_to_array(do_Calculations);
 		Object[] actual = convert_to_array(do_Calculations);
@@ -74,6 +74,14 @@ class TestCalculation {
 			}
 		});
 		return actual.toArray();
+	}
+	
+	@Test
+	public void test_epoch_time() {
+		Calculation cal = new Calculation();
+		String expected = "00:33:20";
+		String actual = cal.convert_epoch_to_time(2000);
+		assertEquals(expected, actual);
 	}
 
 }

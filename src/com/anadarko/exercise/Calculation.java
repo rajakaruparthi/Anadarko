@@ -61,7 +61,6 @@ public class Calculation {
 							convert_epoch_to_time(count > 0 ? total_gap / count : total_gap), min_value,
 							convert_epoch_to_time(max_flight_time));
 				}
-				System.out.println(populate_output_readings.getPlatform_name() + "--" + count);
 				final_output_readings.add(populate_output_readings);
 				count = 0;
 				min_value = 0;
@@ -84,7 +83,6 @@ public class Calculation {
 	}
 
 	public String parseTime(long input) {
-		System.out.println(input < 10 ? "0" + input : Long.toString(input));
 		return input < 10 ? "0" + input : Long.toString(input);
 	}
 

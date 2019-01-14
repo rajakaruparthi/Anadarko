@@ -12,9 +12,6 @@ import com.anadarko.exercise.model.InputReadings;
 
 public class ReadFile extends File {
 
-	// Platform name],[Reading send time in Epoch Time],[Reading receive time in
-	// Epoch Time],[Number of sensors with the same reading],[Reading value]
-
 	static List<InputReadings> all_readings = new ArrayList<InputReadings>();
 
 	public List<InputReadings> populate_readings(String path) {
