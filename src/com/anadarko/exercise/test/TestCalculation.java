@@ -1,4 +1,4 @@
-package com.anadarko.exercice.test;
+package com.anadarko.exercise.test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
