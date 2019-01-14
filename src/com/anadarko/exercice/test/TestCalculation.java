@@ -9,8 +9,8 @@ import java.util.function.Consumer;
 
 import org.junit.jupiter.api.Test;
 import com.anadarko.exercise.Calculation;
-import com.anadarko.exercise.OutputReadings;
-import com.anadarko.exercise.InputReadings;
+import com.anadarko.exercise.model.InputReadings;
+import com.anadarko.exercise.model.OutputReadings;
 
 class TestCalculation {
 

@@ -1,4 +1,4 @@
-package com.anadarko.exercise;
+package com.anadarko.exercise.model;
 
 public class InputReadings {
 
@@ -9,18 +9,17 @@ public class InputReadings {
 	private long reading_receive_time;
 	private int number_of_sensors;
 	private int reading_value;
-	
+
+	public InputReadings() {
+	}
+
 	public InputReadings(String platform_name, long reading_send_time, long reading_receive_time, int number_of_sensors,
 			int reading_value) {
-		super();
-		this.platform_name = platform_name;
-		this.reading_send_time = reading_send_time;
-		this.reading_receive_time = reading_receive_time;
-		this.number_of_sensors = number_of_sensors;
-		this.reading_value = reading_value;
-	}
-	
-	public InputReadings() {
+		setPlatform_name(platform_name);
+		setReading_send_time(reading_send_time);;
+		setReading_receive_time(reading_receive_time);
+		setNumber_of_sensors(number_of_sensors);
+		setReading_value(reading_value);
 	}
 
 	public String getPlatform_name() {

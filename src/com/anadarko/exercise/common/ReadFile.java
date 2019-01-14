@@ -1,4 +1,4 @@
-package com.anadarko.exercise;
+package com.anadarko.exercise.common;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -8,12 +8,16 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadFile {
+import com.anadarko.exercise.model.InputReadings;
+
+public class ReadFile extends File {
+
+	// Platform name],[Reading send time in Epoch Time],[Reading receive time in
+	// Epoch Time],[Number of sensors with the same reading],[Reading value]
 
 	static List<InputReadings> all_readings = new ArrayList<InputReadings>();
 
 	public List<InputReadings> populate_readings(String path) {
-
 		try {
 			try (BufferedReader r = Files.newBufferedReader(Paths.get(path))) {
 				r.lines().forEach(each -> populate(each));
@@ -28,17 +32,8 @@ public class ReadFile {
 
 	private static void populate(String each_reading) {
 		String[] readings_array = each_reading.split(",");
-		assign_data_to_object(readings_array);
+		all_readings.add(
+				new InputReadings(readings_array[0], Long.valueOf(readings_array[1]), Long.valueOf(readings_array[2]),
+						Integer.valueOf(readings_array[3]), Integer.valueOf(readings_array[4])));
 	}
-
-	private static void assign_data_to_object(String[] readings_array) {
-		InputReadings reading = new InputReadings();
-		reading.setPlatform_name(readings_array[0]);
-		reading.setReading_send_time(Long.valueOf(readings_array[1]));
-		reading.setReading_receive_time(Long.valueOf(readings_array[2]));
-		reading.setNumber_of_sensors(Integer.valueOf(readings_array[4]));
-		reading.setReading_value(Integer.valueOf(readings_array[4]));
-		all_readings.add(reading);
-	}
-
 }

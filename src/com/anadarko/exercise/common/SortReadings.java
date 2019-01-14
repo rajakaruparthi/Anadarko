@@ -1,6 +1,8 @@
-package com.anadarko.exercise;
+package com.anadarko.exercise.common;
 
 import java.util.Comparator;
+
+import com.anadarko.exercise.model.InputReadings;
 
 public class SortReadings {
 

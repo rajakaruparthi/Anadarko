@@ -4,21 +4,30 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class MainClass {
+import com.anadarko.exercise.common.Path;
+import com.anadarko.exercise.common.ReadFile;
+import com.anadarko.exercise.common.SortReadings;
+import com.anadarko.exercise.common.WriteFile;
+import com.anadarko.exercise.model.InputReadings;
+import com.anadarko.exercise.model.OutputReadings;
 
-	public static final String path = System.getProperty("user.dir") + "/src/com/anadarco/exercice/resources/input.txt";
+public class MainClass {
 
 	public static List<InputReadings> all_readings = new ArrayList<InputReadings>();
 
 	public static void main(String[] args) 
 	{
-		Calculation cal = new Calculation();
 		ReadFile read = new ReadFile();
+		List<InputReadings> all_readings = read.populate_readings(new Path().getPath());
+		
 		SortReadings sort= new SortReadings();
-		WriteToCSV write = new WriteToCSV();
-		List<InputReadings> all_readings = read.populate_readings(path);
 		Collections.sort(all_readings, sort.comparator());
+		
+		Calculation cal = new Calculation();
 		List<OutputReadings> output_readings = cal.do_calculations(all_readings);
-		write.writeToCsv(output_readings);
+		
+		WriteFile write = new WriteFile();
+		String output_filename = "output1.csv";
+		write.writeToCsv(output_readings, output_filename);
 	}
 }

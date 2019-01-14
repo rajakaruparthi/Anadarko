@@ -1,4 +1,4 @@
-package com.anadarko.exercise;
+package com.anadarko.exercise.model;
 
 public class OutputReadings {
 
